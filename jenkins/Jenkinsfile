@@ -17,12 +17,12 @@ pipeline {
   agent { node { label 'master' } }
   
   stages {
-    stage('Git') {
+    stage('Step 1') {
       steps {
 	git url: 'https://github.com/ComePicard/cicd-static-website', branch: 'master'
       }
     }
-    stage('Build') {
+    stage('Step 2') {
       steps{
 	sh "docker build -t ${IMAGE_NAME}:${IMAGE_REL} -f ../docker/Dockerfile"
 	sh "[ -z \"\$(docker ps -a | grep ${CONTAINER_NAME} 2>/dev/null)\" ] || docker rm -f container-static-ws"
