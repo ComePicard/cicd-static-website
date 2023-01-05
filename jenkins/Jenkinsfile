@@ -16,7 +16,6 @@ pipeline {
   agent any
   
   stages {
-    echo 'Step 1'
     stage('Step 1') {
       steps {
 	git url: 'https://github.com/ComePicard/cicd-static-website', branch: 'main', credentialsId: 'root'
