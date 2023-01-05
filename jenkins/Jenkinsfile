@@ -18,7 +18,6 @@ pipeline {
   
   stages {
     stage('Step 1') {
-      echo "Step 1"
       git branch: "master",
         credentialsId: 'root',
         url: 'https://github.com/ComePicard/cicd-static-website'
